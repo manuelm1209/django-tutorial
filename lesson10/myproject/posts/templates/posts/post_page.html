@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock title %}
+
+{% block content %}
+        <section class="m-5">
+            <div class="container text-center">
+                <div class="row justify-content-md-center mb-5">
+                    <div class="col-6">
+                        <img class="img-thumbnail rounded mx-auto d-block" src=" {{ post.banner.url }} " alt=" {{ post.title }} ">
+                    </div>
+                </div>
+            </div>  
+            
+            <h1 class="mb-4">{{ post.title }}</h1>
+            <p class="fs-6 fw-light fst-italic text-gray-500">{{ post.date }}</p>
+            <p class="fs-5">{{ post.body }}</p>
+        </section>
+{% endblock content %}

@@ -1,0 +1,8 @@
+{% extends "layout.html" %} {% block title %} Register User {% endblock title %}
+{% block content %}
+<p class="fs-1">Register a new user</p>
+<form class="" action="/users/register/" method="post">
+  {% csrf_token %} {{ form }}
+  <button class="btn btn-primary mt-3">Submit</button>
+</form>
+{% endblock content %}

@@ -29,13 +29,13 @@
                 <a class="nav-link" href="/about">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url "posts" %}">Posts</a>
+                <a class="nav-link" href="{% url "posts:list" %}">Posts</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-    <main class="container">
+    <main class="container" data-bs-theme="dark">
         {% block content %}
         {% endblock content %}
     </main>
