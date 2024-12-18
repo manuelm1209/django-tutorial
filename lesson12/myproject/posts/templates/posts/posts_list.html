@@ -1,22 +1,18 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
 
 {% block title %}
-    Posts
-{% endblock title %}
+  Posts
+{% endblock %}
 
 {% block content %}
-        <section class="m-5">
-            <h1 class="mb-4">Posts</h1>
-            {% for post in posts %}
-                <article class="mt-5">
-                    <h3>
-                        <a href="{% url "posts:page" slug=post.slug %}">
-                            {{ post.title }}
-                        </a>
-                    </h3>
-                    <p class="fs-6 fw-light fst-italic text-gray-500">{{ post.date }}</p>
-                    <p class="fs-5">{{ post.body }}</p>
-                </article>
-            {% endfor %}
-        </section>
-{% endblock content %}
+  <section class="m-5">
+    <h1 class="mb-4">Posts</h1>
+    {% for post in posts %}
+      <article class="mt-5">
+        <h3><a href="{% url 'posts:page' slug=post.slug %}">{{ post.title }}</a></h3>
+        <p class="fs-6 fw-light fst-italic text-gray-500">{{ post.date }} by {{ post.author }}</p>
+        <p class="fs-5">{{ post.body }}</p>
+      </article>
+    {% endfor %}
+  </section>
+{% endblock %}
