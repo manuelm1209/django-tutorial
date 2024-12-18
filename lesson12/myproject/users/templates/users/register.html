@@ -6,7 +6,7 @@
 
 {% block content %}
   <p class="fs-1">Register a new user</p>
-  <form class="" action="/users/register/" method="post">
+  <form class="" action="{% url 'users:register' %}" method="post">
     {% csrf_token %}
     {{ form }}
     <button class="btn btn-primary mt-3">Submit</button>

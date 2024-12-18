@@ -6,7 +6,7 @@
 
 {% block content %}
   <p class="fs-1">User Login</p>
-  <form class="" action="/users/login/" method="post">
+  <form class="" action="{% url 'users:login' %}" method="post">
     {% csrf_token %}
     {{ form }}
     {% comment %}With "request.GET.next" we can get the "next" parameter if it exists in the URL{% endcomment %}
