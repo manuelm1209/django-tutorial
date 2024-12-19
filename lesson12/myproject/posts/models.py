@@ -9,9 +9,20 @@ class Post(models.Model):
     slug = models.SlugField()
     date = models.DateTimeField(auto_now_add=True)
     banner = models.ImageField(default="fallback.jpeg", blank=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    # In the Django Shell we can the Related Name to access a relationship in a "reverse order". 
+    # from posts.models import Post
+    # posts = Post.objects.all()
+    # post = posts.first()
+    # from django.contrib.auth.models import User
+    # users = User.objects.all()
+    # users = users.first()
+    # user.post_author.all()
+    # >>> <QuerySet [<Post: Title: first post>]>
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=None, related_name="post_author")
     
+    # def __str__(self):
+    #     return self.title
     def __str__(self):
-        return self.title
+        return f"Title: {self.title}"
     
     
