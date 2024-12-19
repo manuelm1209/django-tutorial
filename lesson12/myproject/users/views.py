@@ -3,6 +3,14 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 
 # Create your views here.
+def index(request):
+    if not request.user.is_authenticated:
+        return redirect("users:login")
+    return render(request, "users/user.html")
+
+# def user(request):
+#     return render(request, "users/user.html")
+
 def register_view(request):
     # If the method is POST, it means the form was submitted.
     if request.method == "POST":
@@ -38,4 +46,4 @@ def login_view(request):
 def logout_view(request):
     if request.method == "POST":
         logout(request)
-        return redirect("posts:list")
+        return redirect("users:login")
